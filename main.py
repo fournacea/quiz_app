@@ -1,6 +1,6 @@
 from question_model import Question
 from data import question_data
-
+from quiz_brain import QuizBrain
 
 question_bank = []
 
@@ -11,19 +11,8 @@ for question in question_data:
     question_bank.append(new_question)
 
 
-# new_q = Question("Plants 'exhale' oxygen", "True")
 
-# print(new_q)
-# print(new_q.text)
-# print(new_q.answer)
-# print(len(question_bank))
-# print(question_bank)
-# print(question_bank[0].text)
-# print(question_bank[0].answer)
-# print(question_bank.answer["0"])
+quiz = QuizBrain(question_bank)
 
-for question in question_bank:
-    print(question.text)
-
-for question in question_bank:
-    print(question.answer)
+while quiz.still_has_questions():
+    quiz.next_question()
